@@ -1,0 +1,27 @@
+{
+  "name": "weather-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server that returns current weather for a given city",
+  "entrypoint": "python weather-mcp-server.py",
+  "protocol": "mcp/1.0",
+  "methods": {
+    "get_weather": {
+      "description": "Get current temperature and rain probability for a city",
+      "params": {
+        "type": "object",
+        "properties": {
+          "city": { "type": "string" }
+        },
+        "required": ["city"]
+      },
+      "result": {
+        "type": "object",
+        "properties": {
+          "temperature": { "type": "number" },
+          "rain_probability": { "type": "number" },
+          "description": { "type": "string" }
+        }
+      }
+    }
+  }
+}
